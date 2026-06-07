@@ -1,5 +1,10 @@
 const express = require("express");
 
+const connectDB = require("./config/db");
+const User = require("./models/user");
+const StudentProfile = require("./models/studentProfiles.js");
+connectDB();
+
 const app = express();
 const PORT = 3000;
 app.use(express.json());

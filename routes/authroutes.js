@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { register, login } = require("../controllers/authController.js");
 const User = require("../models/user.js");
-
+const { loginLimiter } = require("../middleware/authMiddleware.js")
 router.get("/", (req, res) => {
     res.send("Auth is working");
 });
@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
 
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", loginLimiter, async (req, res) => {
     const { email, password } = req.body;
     const result = await login(email, password);
 

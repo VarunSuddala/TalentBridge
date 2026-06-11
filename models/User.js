@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-
 const userSchema = new mongoose.Schema({
-
     name: {
         type: String,
         required: [true, "name must be filled"]
@@ -11,35 +9,30 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: [true, "email must be unique"],
-        lowercase: true,
-
+        lowercase: true
     },
     password: {
         type: String,
         required: true,
         minlength: [8, "must be 8 characters"]
     },
-
     role: {
         type: String,
-        enum: ["student", "tpo", "admin", "mentor", "trainer"],
+        enum: ["admin", "tpo", "trainer", "student", "recruiter"],
         default: "student"
     },
-
     refreshToken: {
         type: String,
         required: false,
         select: false
     },
-
     createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now
     },
-
     updatedAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now
     }
 });
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const User = require("./models/user");
-const StudentProfile = require("./models/studentProfiles.js");
+const User = require("./models/User");
+const StudentProfile = require("./models/StudentProfile.js");
 require('dotenv').config()
 
 async function main() {
